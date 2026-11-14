@@ -26,21 +26,8 @@ GET HTTPS, resposta JSON com `info` e `results`. Consultas públicas não exigem
 
 Implementado: HTML/CSS puro; Fetch; cards construídos pelo JavaScript com nome, imagem, status e espécie; layout responsivo; busca; paginação; referências exigidas.
 
-Incluídos separadamente: PDF teórico de 3 páginas e roteiro para pitch com menos de 4 minutos.
-
-Pendente para a entrega acadêmica:
-
-1. Consultar o material da disciplina no AVA e ajustar a teoria conforme o conteúdo do professor. Esse material não foi fornecido.
-2. Revisar o projeto e registrar seus dados de identificação na entrega, conforme orientação da instituição.
-3. Publicar os arquivos do site em um repositório GitHub e enviar o link. No GitHub Pages: Settings → Pages → Deploy from a branch → main, pasta raiz. Suba os arquivos desta pasta diretamente na raiz do repositório; não precisa de frameworks ou build. A hospedagem privada do Sites não substitui o link GitHub exigido.
-4. Gravar sua apresentação usando o roteiro, demonstrar a requisição real em Network e publicar o vídeo em plataforma acessível ao avaliador. Um vídeo privado exige conceder acesso; um vídeo não listado costuma ser mais simples.
-5. Testar os links em janela anônima e conferir a orientação de compartilhamento da instituição.
-
-Rick and Morty é posterior ao recorte temporal do título do enunciado, mas está explicitamente listado entre as APIs permitidas no próprio trabalho.
 
 ## Fontes de pesquisa
-
-Consultadas em 12/11/2026:
 
 - MDN. Usando Fetch: https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
 - DEVMedia. JavaScript: Fetch API: https://www.devmedia.com.br/javascript-fetch/41206
