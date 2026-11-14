@@ -1,31 +1,137 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore personagens e suas histórias com o Multiverse Atlas. Projeto acadêmico com HTML, CSS e JavaScript puro.">
-  <title>Multiverse Atlas • Explore os personagens</title>
-  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
-</head>
-<body>
-<a class="skip" href="#catalogo">Pular para o catálogo</a>
-<header class="header wrap"><a class="brand" href="#inicio"><span>MULTI</span>VERSE</a><nav aria-label="Principal"><a href="#catalogo">Personagens</a><a href="#universo">O universo</a><a href="#fontes">Fontes</a></nav><button id="refresh" class="outline">Atualizar ↻</button></header>
-<main>
-  <section id="inicio" class="hero wrap">
-    <div class="hero-copy"><p class="eyebrow"><span class="red-line"></span> ARQUIVO DO MULTIVERSO</p><h1>Infinitas dimensões.<br>Encontros <em>improváveis.</em></h1><p class="intro">Um cientista, seu neto e um multiverso inteiro para explorar. Conheça os habitantes mais improváveis de Rick and Morty.</p><a class="primary" href="#catalogo">Explorar personagens <span>↓</span></a><div class="hero-note"><span>01 /</span> UM UNIVERSO DE POSSIBILIDADES</div></div>
-    <div class="comic-art" aria-hidden="true"><div class="orb"></div><div class="speed s1"></div><div class="speed s2"></div><div class="speed s3"></div><div class="star">✦</div><div class="panel-caption">A PRÓXIMA HISTÓRIA<br>COMEÇA AQUI.</div><span class="issue">ATLAS / VOL. 01</span><div class="burst">EXPLORE<br><strong>O INCRÍVEL.</strong></div></div>
-  </section>
-  <div class="ticker" aria-hidden="true">PERSONAGENS <span>✦</span> DIMENSÕES <span>✦</span> HISTÓRIAS <span>✦</span> MULTIVERSO <span>✦</span> PERSONAGENS <span>✦</span> DIMENSÕES</div>
-  <section id="catalogo" class="catalog wrap" aria-labelledby="catalog-title"><div class="section-top"><div><p class="eyebrow">ENCONTRE SUA PRÓXIMA DESCOBERTA</p><h2 id="catalog-title">Quem faz parte da história?</h2></div><span id="connection" class="badge">Consultando API…</span></div>
-    <form id="search-form" class="filters"><div class="search"><label for="search">Buscar personagem</label><div><input id="search" name="search" type="search" maxlength="100" placeholder="Ex.: Rick, Morty, Summer…"><button class="primary" type="submit">Buscar ↗</button></div></div><div class="sort"><label for="status-filter">Status do personagem</label><select id="status-filter"><option value="">Todos os status</option><option value="alive">Vivo</option><option value="dead">Morto</option><option value="unknown">Desconhecido</option></select></div></form>
-    <div id="status" class="status" role="status" aria-live="polite"></div>
-    <div id="characters" class="grid" aria-busy="false"></div>
-    <div id="empty" class="empty" hidden><span class="empty-icon" aria-hidden="true">✦</span><h3>Ninguém nesta dimensão.</h3><p>Tente outro nome ou remova o filtro de status.</p><button id="reset" class="primary">Limpar filtros ↗</button></div>
-    <nav class="pagination" aria-label="Paginação de personagens"><button id="prev" class="outline" disabled>← Anterior</button><span id="page">Nenhuma página carregada</span><button id="next" class="outline" disabled>Próxima →</button></nav>
-  </section>
-  <section id="universo" class="universe"><div class="wrap universe-inner"><div><p class="eyebrow">COORDENADAS DESCONHECIDAS</p><h2>A próxima dimensão<br>está a uma busca.</h2></div><div><p>Rick e Morty percorrem realidades alternativas, planetas distantes e versões inesperadas de pessoas conhecidas. Cada aventura amplia um universo de personagens peculiares.</p><p>Explore nome, imagem, status, espécie e localização de cada personagem. As informações são consultadas na Rick and Morty API a cada busca: o catálogo pode mudar conforme a atualização da fonte.</p><a href="https://rickandmortyapi.com/about" target="_blank" rel="noopener noreferrer">Sobre a API e seus criadores ↗</a></div></div></section>
-  <section id="fontes" class="wrap sources"><p class="eyebrow">PESQUISA & DESENVOLVIMENTO</p><h2>Conhecimento por trás dos cards.</h2><p>Construído com HTML, CSS e JavaScript puro. As referências abaixo orientam o consumo da API e a criação dinâmica dos elementos.</p><div class="source-grid"><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer"><small>01 / MDN WEB DOCS</small>Usando Fetch ↗</a><a href="https://www.devmedia.com.br/javascript-fetch/41206" target="_blank" rel="noopener noreferrer"><small>02 / DEVMEDIA</small>JavaScript: Fetch API ↗</a><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement" target="_blank" rel="noopener noreferrer"><small>03 / MDN WEB DOCS</small>createElement ↗</a><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild" target="_blank" rel="noopener noreferrer"><small>04 / MDN WEB DOCS</small>appendChild ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/append" target="_blank" rel="noopener noreferrer"><small>05 / MDN WEB DOCS</small>append ↗</a><a href="https://rickandmortyapi.com/documentation" target="_blank" rel="noopener noreferrer"><small>06 / RICK AND MORTY</small>Documentação da API ↗</a></div><p class="source-note">Material da disciplina no AVA: referência prevista no enunciado, pendente de consulta pelo aluno. Não foi disponibilizado neste projeto.</p></section>
-</main>
-<footer class="wrap"><a class="brand" href="#inicio"><span>MULTI</span>VERSE</a><p>Projeto acadêmico independente • Não oficial.</p><p id="attribution">Dados: Rick and Morty API • Personagens: Adult Swim.</p></footer>
-<dialog id="details"><button class="close" id="close-details" aria-label="Fechar detalhes">×</button><div id="details-content"></div></dialog>
-</body></html>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore personagens e suas histórias com o Multiverse Atlas. Projeto acadêmico com HTML, CSS e JavaScript puro.">
+    <title>Multiverse Atlas • Explore os personagens</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#catalogo">Pular para o catálogo</a>
+    <header class="header wrap">
+      <a class="brand" href="#inicio"><span>MULTI</span>VERSE</a>
+      <nav aria-label="Principal">
+        <a href="#catalogo">Personagens</a>
+        <a href="#universo">O universo</a>
+        <a href="#fontes">Fontes</a>
+      </nav>
+      <button id="refresh" class="outline">Atualizar ↻</button>
+    </header>
+    <main>
+      <section id="inicio" class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="red-line"></span> ARQUIVO DO MULTIVERSO</p>
+          <h1>Infinitas dimensões.<br>Encontros <em>improváveis.</em></h1>
+          <p class="intro">Um cientista, seu neto e um multiverso inteiro para explorar. Conheça os habitantes mais improváveis de Rick and Morty.</p>
+          <a class="primary" href="#catalogo">Explorar personagens <span>↓</span></a>
+          <div class="hero-note">
+            <span>01 /</span> UM UNIVERSO DE POSSIBILIDADES
+          </div>
+        </div>
+        <div class="comic-art" aria-hidden="true">
+          <div class="orb">
+          </div>
+          <div class="speed s1">
+          </div>
+          <div class="speed s2">
+          </div>
+          <div class="speed s3">
+          </div>
+          <div class="star">
+            ✦
+          </div>
+          <div class="panel-caption">
+            A PRÓXIMA HISTÓRIA
+            <br>
+            COMEÇA AQUI.
+          </div>
+          <span class="issue">ATLAS / VOL. 01</span>
+          <div class="burst">
+            EXPLORE
+            <br>
+            <strong>O INCRÍVEL.</strong>
+          </div>
+        </div>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        PERSONAGENS <span>✦</span> DIMENSÕES <span>✦</span> HISTÓRIAS <span>✦</span> MULTIVERSO <span>✦</span> PERSONAGENS <span>✦</span> DIMENSÕES
+      </div>
+      <section id="catalogo" class="catalog wrap" aria-labelledby="catalog-title">
+        <div class="section-top">
+          <div>
+            <p class="eyebrow">ENCONTRE SUA PRÓXIMA DESCOBERTA</p>
+            <h2 id="catalog-title">Quem faz parte da história?</h2>
+          </div>
+          <span id="connection" class="badge">Consultando API…</span>
+        </div>
+        <form id="search-form" class="filters">
+          <div class="search">
+            <label for="search">Buscar personagem</label>
+            <div>
+              <input id="search" name="search" type="search" maxlength="100" placeholder="Ex.: Rick, Morty, Summer…">
+              <button class="primary" type="submit">Buscar ↗</button>
+            </div>
+          </div>
+          <div class="sort">
+            <label for="status-filter">Status do personagem</label>
+            <select id="status-filter"><option value="">Todos os status</option><option value="alive">Vivo</option><option value="dead">Morto</option><option value="unknown">Desconhecido</option></select>
+          </div>
+        </form>
+        <div id="status" class="status" role="status" aria-live="polite">
+        </div>
+        <div id="characters" class="grid" aria-busy="false">
+        </div>
+        <div id="empty" class="empty" hidden>
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <h3>Ninguém nesta dimensão.</h3>
+          <p>Tente outro nome ou remova o filtro de status.</p>
+          <button id="reset" class="primary">Limpar filtros ↗</button>
+        </div>
+        <nav class="pagination" aria-label="Paginação de personagens">
+          <button id="prev" class="outline" disabled>← Anterior</button>
+          <span id="page">Nenhuma página carregada</span>
+          <button id="next" class="outline" disabled>Próxima →</button>
+        </nav>
+      </section>
+      <section id="universo" class="universe">
+        <div class="wrap universe-inner">
+          <div>
+            <p class="eyebrow">COORDENADAS DESCONHECIDAS</p>
+            <h2>A próxima dimensão<br>está a uma busca.</h2>
+          </div>
+          <div>
+            <p>Rick e Morty percorrem realidades alternativas, planetas distantes e versões inesperadas de pessoas conhecidas. Cada aventura amplia um universo de personagens peculiares.</p>
+            <p>Explore nome, imagem, status, espécie e localização de cada personagem. As informações são consultadas na Rick and Morty API a cada busca: o catálogo pode mudar conforme a atualização da fonte.</p>
+            <a href="https://rickandmortyapi.com/about" target="_blank" rel="noopener noreferrer">Sobre a API e seus criadores ↗</a>
+          </div>
+        </div>
+      </section>
+      <section id="fontes" class="wrap sources">
+        <p class="eyebrow">PESQUISA & DESENVOLVIMENTO</p>
+        <h2>Conhecimento por trás dos cards.</h2>
+        <p>Construído com HTML, CSS e JavaScript puro. As referências abaixo orientam o consumo da API e a criação dinâmica dos elementos.</p>
+        <div class="source-grid">
+          <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer"><small>01 / MDN WEB DOCS</small>Usando Fetch ↗</a>
+          <a href="https://www.devmedia.com.br/javascript-fetch/41206" target="_blank" rel="noopener noreferrer"><small>02 / DEVMEDIA</small>JavaScript: Fetch API ↗</a>
+          <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement" target="_blank" rel="noopener noreferrer"><small>03 / MDN WEB DOCS</small>createElement ↗</a>
+          <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild" target="_blank" rel="noopener noreferrer"><small>04 / MDN WEB DOCS</small>appendChild ↗</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/append" target="_blank" rel="noopener noreferrer"><small>05 / MDN WEB DOCS</small>append ↗</a>
+          <a href="https://rickandmortyapi.com/documentation" target="_blank" rel="noopener noreferrer"><small>06 / RICK AND MORTY</small>Documentação da API ↗</a>
+        </div>
+        <p class="source-note">Material da disciplina no AVA: referência prevista no enunciado, pendente de consulta pelo aluno. Não foi disponibilizado neste projeto.</p>
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="brand" href="#inicio"><span>MULTI</span>VERSE</a>
+      <p>Projeto acadêmico independente • Não oficial.</p>
+      <p id="attribution">Dados: Rick and Morty API • Personagens: Adult Swim.</p>
+    </footer>
+    <dialog id="details">
+      <button class="close" id="close-details" aria-label="Fechar detalhes">×</button>
+      <div id="details-content">
+      </div>
+    </dialog>
+  </body>
+</html>
